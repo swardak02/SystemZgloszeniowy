@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h2>Nowe zgłoszenie</h2>
+
+    <form method="post">
+        <div>
+            <label for="txtTytul">Tytuł zgłoszenia:</label>
+            <input asp-for="Model.Tytul" class="form-control" />
+            <span asp-validation-for="Model.Tytul" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="txtOpis">Opis zgłoszenia:</label>
+            <textarea asp-for="Model.Opis" class="form-control"></textarea>
+            <span asp-validation-for="Model.Opis" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label for="ddlTyp">Typ zgłoszenia:</label>
+            <select asp-for="Model.Typ" class="form-control">
+                <option value="Krytyczny">Błąd krytyczny</option>
+                <option value="Powazny">Błąd poważny</option>
+                <option value="Problem">Błąd zwykły</option>
+            </select>
+            <span asp-validation-for="Model.Typ" class="text-danger"></span>
+        </div>
+
+        <button type="submit">Zgłoś</button>
+    </form>
+</div>
